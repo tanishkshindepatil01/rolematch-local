@@ -1,0 +1,206 @@
+:root {
+    --rolematch-ink: #171b30;
+    --rolematch-muted: #515974;
+    --rolematch-indigo: #364bc4;
+    --rolematch-line: #dcdff0;
+    --rolematch-ease: cubic-bezier(.2, .75, .25, 1);
+}
+
+.stMainBlockContainer {
+    max-width: 71.5rem;
+    padding-top: clamp(1.7rem, 4vw, 3rem);
+    padding-bottom: 5rem;
+}
+
+.rolematch-wordmark {
+    display: flex;
+    align-items: center;
+    gap: .22em;
+    color: var(--rolematch-ink);
+    font-size: 1.65rem;
+    font-weight: 890;
+    letter-spacing: -.065em;
+    line-height: 1;
+}
+
+.rolematch-wordmark span {
+    font-size: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #4b54d9, #a762c7 66%, #ed8c86);
+    box-shadow: 0 0 15px #7863e363;
+}
+
+.rolematch-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    min-height: clamp(19rem, 32vw, 25.5rem);
+    padding: clamp(1.4rem, 6vw, 4.6rem);
+    border: 1px solid #dcdff5;
+    border-radius: clamp(1.4rem, 3vw, 2.65rem);
+    background: linear-gradient(136deg, #fcfbff 7%, #eeeeff 49%, #e5e4ff 73%, #fbdee4 100%);
+}
+
+.rolematch-hero-copy { animation: rolematch-enter .78s var(--rolematch-ease) both; }
+
+.rolematch-hero h1 {
+    color: var(--rolematch-ink);
+    font-size: clamp(2.95rem, 7.55vw, 6.7rem);
+    font-weight: 875;
+    letter-spacing: -.072em;
+    line-height: .91;
+    margin: 0 0 1.15rem;
+    padding: 0;
+}
+
+.rolematch-hero h1 em {
+    color: #3649ad;
+    font-style: normal;
+    background: linear-gradient(100deg, #3549b4, #584cc1 54%, #933f8d);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rolematch-hero p {
+    max-width: 31rem;
+    color: var(--rolematch-muted);
+    font-size: clamp(.96rem, 1.8vw, 1.2rem);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.rolematch-halo {
+    position: absolute;
+    z-index: -1;
+    inset: -30% -14% -65% 29%;
+    background:
+        radial-gradient(ellipse at 61% 46%, #9caaffc4 0, #a5b0ff86 19%, transparent 47%),
+        radial-gradient(ellipse at 89% 55%, #d4a5f2b0 8%, transparent 46%),
+        radial-gradient(ellipse at 55% 71%, #f6aabb91 1%, transparent 51%);
+    animation: rolematch-drift 12s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.rolematch-halo::before,
+.rolematch-halo::after {
+    content: "";
+    position: absolute;
+    top: 43%;
+    right: 23%;
+    width: min(38vw, 27rem);
+    aspect-ratio: 1.72;
+    border-radius: 50%;
+    border: 1px solid #ffffffbe;
+    transform: rotate(-28deg);
+    box-shadow: 0 0 46px #ffffff9c inset, 0 0 30px #aab4f25e;
+}
+
+.rolematch-halo::after { transform: rotate(-28deg) scale(.77); }
+
+.rolematch-steps {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .45rem .65rem;
+    padding: 0;
+    margin: clamp(1rem, 3vw, 1.85rem) 0 0;
+    counter-reset: rolematch-step;
+}
+
+.rolematch-steps li {
+    counter-increment: rolematch-step;
+    color: #323951;
+    background: #ffffffaa;
+    border: 1px solid #ffffffd6;
+    padding: .34rem .7rem .34rem .46rem;
+    border-radius: 99px;
+    font-size: .78rem;
+    font-weight: 650;
+}
+
+.rolematch-steps li::before {
+    content: counter(rolematch-step);
+    display: inline-grid;
+    width: 1.2rem;
+    height: 1.2rem;
+    place-items: center;
+    margin-right: .34rem;
+    border-radius: 50%;
+    color: #3a4ab3;
+    background: #e6e9ff;
+    font-size: .65rem;
+}
+
+.st-key-cv_panel,
+[class*="st-key-vacancy_"],
+[class*="st-key-role_"] {
+    background: #fff;
+    border: 1px solid var(--rolematch-line) !important;
+    border-radius: 1.35rem !important;
+    transition: border-color .28s var(--rolematch-ease), box-shadow .28s var(--rolematch-ease);
+}
+
+.st-key-cv_panel { box-shadow: 0 14px 45px #57619712; }
+[class*="st-key-vacancy_"]:hover { border-color: #b9c3f8 !important; box-shadow: 0 10px 35px #4f64bd13; }
+
+.st-key-cv_panel [data-testid="stFileUploaderDropzone"] {
+    border: 1px dashed #97a6dc;
+    border-radius: .9rem;
+    min-height: 5.1rem;
+    background: #f5f6ff;
+    transition: background .24s var(--rolematch-ease), border-color .24s var(--rolematch-ease);
+}
+
+.st-key-cv_panel [data-testid="stFileUploaderDropzone"]:focus-within,
+.st-key-cv_panel [data-testid="stFileUploaderDropzone"]:hover { border-color: #576dd1; background: #ecf0ff; }
+
+.stMain button, [data-testid="stDialog"] button, a[data-testid="stBaseLinkButton-secondary"] {
+    transition: transform .22s var(--rolematch-ease), background .22s var(--rolematch-ease), box-shadow .22s var(--rolematch-ease);
+}
+.stMain button:active, [data-testid="stDialog"] button:active { transform: scale(.982); }
+
+.rolematch-job-kicker {
+    margin: 0 0 .28rem;
+    color: var(--rolematch-indigo);
+    font-size: .79rem;
+    font-weight: 740;
+    letter-spacing: .055em;
+    text-transform: uppercase;
+}
+
+.rolematch-role-title { margin: 0 !important; padding: 0 !important; font-weight: 780; letter-spacing: -.03em; }
+
+@keyframes rolematch-enter {
+    from { opacity: .90; transform: translate3d(0, 16px, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes rolematch-drift {
+    from { transform: translate3d(-2%, 1%, 0) scale(1); }
+    to { transform: translate3d(2%, -2%, 0) scale(1.09); }
+}
+
+@supports (animation-timeline: view()) {
+    [class*="st-key-vacancy_"] {
+        animation: rolematch-enter linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 45%;
+    }
+}
+
+@media (max-width: 700px) {
+    .rolematch-halo { opacity: .7; inset-inline-start: 15%; }
+    .rolematch-hero h1 { line-height: .98; }
+    .st-key-cv_panel [data-testid="stHorizontalBlock"] { flex-wrap: wrap; }
+    .st-key-cv_panel [data-testid="stColumn"] { flex-basis: 100%; min-width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rolematch-hero-copy, .rolematch-halo, [class*="st-key-vacancy_"] { animation: none !important; }
+    .stMain button, [data-testid="stDialog"] button, .st-key-cv_panel, [class*="st-key-vacancy_"] { transition: none !important; }
+}

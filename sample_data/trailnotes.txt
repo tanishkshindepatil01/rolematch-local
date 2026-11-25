@@ -1,0 +1,5 @@
+Fictional sample portfolio · TrailNotes
+
+Maya Reed built TrailNotes to search a hiking club’s trip reports. Its stack was Python for text extraction, ChromaDB for passage retrieval, Ollama for answer generation, and Streamlit for the interface.
+
+Maya evaluated retrieval by writing 20 test questions and checking whether the expected source appeared in the top three results. It did for 17 of the 20 questions. She measured retrieval performance in this test.
